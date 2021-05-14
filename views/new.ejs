@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/send_url.js"></script>
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <title>LIST</title>
+</head>
+
+<body>
+    <header>
+        <a href="/" class="header-logo">LIST</a>
+    </header>
+    <div class="container">
+        <div class="container-header">
+            <h1>Add Item</h1>
+        </div>
+        <div class="item-form-wrapper">
+            <p class="form-label">Food name</p>
+            <form action="/create" method="post">
+                <input name="itemName" type="text">
+                <input type="submit" value="Add">
+            </form>
+            <p class="form-label">Price</p>
+            <form action="/create_price" method="post">
+                <input name="itemName" type="text">
+                <input type="submit" value="Add">
+            </form>
+        </div>
+        <a href="/index" class="cancel-button">Go back</a>
+    </div>
+</body>
+
+</html>
