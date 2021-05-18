@@ -9,6 +9,7 @@ html {
     font-family: 'Hiragino Sans', sans-serif;
     line-height: 1.7;
     letter-spacing: 1px;
+    cursor : url(/img/cursor.png), auto
 }
 
 body {
@@ -232,7 +233,7 @@ header {
 
 .name-column {
     width: 200px;
-} 
+}
 
 .table-body .id-column {
     font-size: 16px;
@@ -253,8 +254,25 @@ header {
     width: 100px;
 }
 
+.table-body .price-column {
+    font-size: 14px;
+    font-weight: 500;
+    color: #8491a5;
+}
+
 .price-column {
-    width: 100px;
+    width: 120px;
+}
+
+.table-body .date-column {
+    width: 120px;
+    color: #bac6d3;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.date-column {
+    color: #ffffff;
 }
 
 .item-data {
@@ -297,7 +315,46 @@ header {
     color: #80bcff;
 }
 
-/* new, edit */
+.item-menu {
+    display: flex;
+    flex-direction: row;
+}
+
+.item-menu form {
+    width: 60px;
+    text-align: center;
+}
+
+.item-menu form input {
+    font-size: 14px;
+    color: #bac6d3;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.item-menu form input:hover {
+    color: #ff7f8c;
+    transition: all 0.3s ease;
+}
+
+.item-menu a {
+    width: 200px;
+    font-size: 14px;
+    color: #bac6d3;
+    text-align: center;
+}
+
+.item-menu a:hover {
+    color: #80bcff;
+}
+
+/* new, edit ================================ */
 
 .item-form-wrapper {
     background-color: #ffffff;
@@ -331,15 +388,15 @@ header {
     margin-left: auto;
     border-radius: 30px;
     font-size: 14px;
-    background-color: #ff961e;
+    background-color: #80bcff;
     color: #ffffff;
     cursor: pointer;
     outline: none;
-    border: 2px solid #f07b2d;
+    border: 2px solid #80bcff;
 }
 
 .item-form-wrapper input[type="submit"]:hover {
     background-color: #ffffff;
-    color: #f07b2d;
+    color: #80bcff;
     transition: all 0.3s ease;
 }

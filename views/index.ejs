@@ -24,6 +24,7 @@
                 <span class="id-column">ID</span>
                 <span class="name-column">Item</span>
                 <span class="price-column">Price</span>
+                <span class="date-column">Date</span>
             </div>
             <ul class="table-body">
                 <% items.forEach((item)=> { %>
@@ -38,12 +39,16 @@
                             <span class="price-column">
                                 <%= item.price %>
                             </span>
+                            <span class="date-column">
+                                <%= item.date %>
+                            </span>
                         </div>
                         <div class="item-menu">
                             <form action="/delete/<%= item.id %>" method="post">
-                              <input type="submit" value="Delete">
+                                <input type="submit" value="Delete">
                             </form>
-                          </div>
+                            <a href="/edit/<%= item.id %>">Edit</a>
+                        </div>
                     </li>
                     <% }) %>
             </ul>

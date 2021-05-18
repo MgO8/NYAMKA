@@ -19,14 +19,14 @@
             <h1>Add Item</h1>
         </div>
         <div class="item-form-wrapper">
-            <p class="form-label">Food name</p>
+            
             <form action="/create" method="post">
-                <input name="itemName" type="text">
-                <input type="submit" value="Add">
-            </form>
-            <p class="form-label">Price</p>
-            <form action="/create_price" method="post">
-                <input name="itemName" type="text">
+                <p class="form-label">Food name</p>
+                <input name="itemName" type="text" required>
+                <p class="form-label">Price</p>
+                <input name="itemPrice" type="number" max="1000000" required>
+                <p class="form-label" type="text">Date</p>
+                <input name="date" type="date" required>
                 <input type="submit" value="Add">
             </form>
         </div>
