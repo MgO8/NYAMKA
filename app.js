@@ -1,6 +1,12 @@
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
+const session = require('express-session');
+
+const getLocaleString = (date) => {
+  const tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
+  return (new Date(+date - tzoffset)).toISOString().slice(0, -1);
+}
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
@@ -22,7 +28,7 @@ app.get('/index', (req, res) => {
     (error, results) => {
       results.forEach(item => {
         if (item.date !== null) {
-          item.date = item.date.toISOString().split('T')[0]
+          item.date = getLocaleString(item.date).split('T')[0]
         }
       });
       console.log("Result: ", results);

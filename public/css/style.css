@@ -1,7 +1,7 @@
 /* reset ================================ */
 
 * {
-    box-sizing: border-box;
+    box-sizing: border-box
 }
 
 html {
@@ -9,7 +9,7 @@ html {
     font-family: 'Hiragino Sans', sans-serif;
     line-height: 1.7;
     letter-spacing: 1px;
-    cursor : url(/img/cursor.png), auto
+    cursor: url(/img/cursor.png), auto;
 }
 
 body {
@@ -29,10 +29,17 @@ a {
     text-decoration: none;
     color: #2d3133;
     font-size: 14px;
+    cursor: url(/img/pointer_nyamka.png), auto;
+    /* custom pointer */
 }
 
 a:hover {
     transition: all 0.3s ease;
+}
+
+input {
+    cursor: url(/img/pointer_nyamka.png), auto;
+    /* custom pointer */
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -95,10 +102,6 @@ h1 {
     background-color: #5ef7be;
 }
 
-.index_button {
-    cursor: pointer;
-}
-
 .main_image {
     margin-left: 150px;
     width: 50%;
@@ -149,7 +152,6 @@ header {
 }
 
 .container-header .new-button {
-    background: #ff961e;
     font-size: 14px;
     height: 110px;
     width: 110px;
@@ -289,7 +291,6 @@ header {
 .item-menu form input {
     font-size: 16px;
     color: #bac6d3;
-    cursor: pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -321,14 +322,13 @@ header {
 }
 
 .item-menu form {
-    width: 60px;
+    width: 70px;
     text-align: center;
 }
 
 .item-menu form input {
     font-size: 14px;
-    color: #bac6d3;
-    cursor: pointer;
+    color: #f19b9b;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -354,7 +354,7 @@ header {
     color: #80bcff;
 }
 
-/* new, edit ================================ */
+/* new, edit */
 
 .item-form-wrapper {
     background-color: #ffffff;
@@ -390,9 +390,8 @@ header {
     font-size: 14px;
     background-color: #80bcff;
     color: #ffffff;
-    cursor: pointer;
     outline: none;
-    border: 2px solid #80bcff;
+    border: 2px solid #6aa3e6;
 }
 
 .item-form-wrapper input[type="submit"]:hover {
