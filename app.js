@@ -41,6 +41,10 @@ app.get('/new', (req, res) => {
   res.render('new.ejs');
 });
 
+app.get('/about', (req, res) => {
+  res.render('about.ejs');
+});
+
 app.post('/create', (req, res) => {
   connection.query(
     'INSERT INTO items (items, price, date) VALUES (?,?,?)',
