@@ -3,6 +3,14 @@ const mysql = require('mysql');
 const app = express();
 const session = require('express-session');
 
+app.use(
+  session({
+    secret: 'mur',
+    resave: false,
+    saveUninitialized: false,
+  })
+)
+
 const getLocaleString = (date) => {
   const tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
   return (new Date(+date - tzoffset)).toISOString().slice(0, -1);
@@ -84,5 +92,32 @@ app.post('/update/:id', (req, res) => {
     }
   );
 });
+
+app.get('/login', (req, res) => {
+  res.render('login.ejs');
+});
+
+app.post('/login', (req, res) => {
+  const email = req.body.email;
+  connection.query(
+    'SELECT * FROM users WHERE email = ?',
+    [email],
+    (error, results) => {
+      if (results.length > 0) {
+        if (req.body.password === results[0].password){
+          req.session.userId = results[0].id;
+          req.session.username = results[0].username;
+          res.redirect('/list');
+        } else {
+          res.redirect('/login');
+        }    
+      } else {
+        res.redirect('/login');
+      }
+    }
+  );
+});
+
+
 
 app.listen(3000);
