@@ -110,6 +110,21 @@ app.get('/signup', (req, res) => {
   res.render('signup.ejs')
 })
 
+app.post('/signup', (req, res) => {
+  const username = req.body.username; 
+  const email = req.body.email; 
+  const password = req.body.password; 
+  connection.query(
+    'INSERT INTO users(username, email, password) VALUES (?,?,?)',
+    [username, email, password],
+    (error, result) => {
+      req.session.userId = results.insertId;
+      req.session.username = username; 
+      res.redirect('/index');
+    }
+  )
+})
+
 app.get('/login', (req, res) => {
   res.render('login.ejs');
 });
