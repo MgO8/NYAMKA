@@ -106,6 +106,10 @@ app.post('/update/:id', (req, res) => {
   );
 });
 
+app.get('/signup', (req, res) => {
+  res.render('signup.ejs')
+})
+
 app.get('/login', (req, res) => {
   res.render('login.ejs');
 });
@@ -120,7 +124,7 @@ app.post('/login', (req, res) => {
         if (req.body.password === results[0].password){
           req.session.userId = results[0].id;
           req.session.username = results[0].username;
-          res.redirect('/list');
+          res.redirect('/index');
         } else {
           res.redirect('/login');
         }    
@@ -133,7 +137,7 @@ app.post('/login', (req, res) => {
 
 app.get('/logout', (req, res) => {
   req.session.destroy(error => {
-    res.redirect('/list');
+    res.redirect('/');
   });
 });
 

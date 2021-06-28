@@ -250,15 +250,16 @@ header {
 }
 
 .table-body li {
-    height: 72px;
+    min-height: 72px;
     border: 1px solid #f0f4f9;
     border-top: none;
-    line-height: 74px;
+    line-height: 30px;
     display: flex;
 }
 
 .name-column {
     width: 200px;
+    word-wrap: anywhere;
 }
 
 .table-body .id-column {
@@ -280,14 +281,9 @@ header {
     width: 100px;
 }
 
-.table-body .price-column {
-    font-size: 14px;
-    font-weight: 500;
-    color: #8491a5;
-}
-
 .price-column {
     width: 120px;
+    text-align: center;
 }
 
 .table-body .date-column {
