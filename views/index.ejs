@@ -11,9 +11,7 @@
 </head>
 
 <body>
-    <header>
-        <a class="header-logo" href="/">LIST</a>
-    </header>
+    <%- include('header'); %> 
     <div class="container">
         <div class="container-header">
             <h1>Daily Food List</h1>
@@ -34,7 +32,7 @@
                                 <%= item.id %>
                             </span>
                             <span class="name-column">
-                                <%= item.items %>
+                                <%= item.name %>
                             </span>
                             <span class="price-column">
                                 <%= item.price %>

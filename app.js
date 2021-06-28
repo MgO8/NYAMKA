@@ -9,7 +9,18 @@ app.use(
     resave: false,
     saveUninitialized: false,
   })
-)
+);
+
+app.use((req, res, next) => {
+  if (req.session.userId === undefined) {
+    res.locals.username = 'Guest';
+    res.locals.isLoggedIn = false;
+  } else {
+    res.locals.username = req.session.username;
+    res.locals.isLoggedIn = true;
+  }
+  next();
+});
 
 const getLocaleString = (date) => {
   const tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
@@ -55,7 +66,7 @@ app.get('/about', (req, res) => {
 
 app.post('/create', (req, res) => {
   connection.query(
-    'INSERT INTO items (items, price, date) VALUES (?,?,?)',
+    'INSERT INTO items (name, price, date) VALUES (?,?,?)',
     [req.body.itemName, req.body.itemPrice, req.body.date],
     (error, results) => {
       res.redirect('/index');
@@ -84,10 +95,12 @@ app.get('/edit/:id', (req, res) => {
 });
 
 app.post('/update/:id', (req, res) => {
+  console.log(`itemName : ${req.body.itemName} id: ${req.params.id}`)
   connection.query(
     'UPDATE items SET name = ? WHERE id = ?',
     [req.body.itemName, req.params.id],
     (error, results) => {
+      console.log(error)
       res.redirect('/index');
     }
   );
@@ -118,6 +131,11 @@ app.post('/login', (req, res) => {
   );
 });
 
+app.get('/logout', (req, res) => {
+  req.session.destroy(error => {
+    res.redirect('/list');
+  });
+});
 
 
 app.listen(3000);

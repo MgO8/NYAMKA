@@ -7,9 +7,9 @@
     <script src="/send_url.js"></script>
 </head>
 <body>
+  <%- include('header'); %> 
     <div class="sign">
       <div class="container">
-        <h1><a href="/list">NYAMKA</a></h1>
         <div class="panel">
           <h2>Log in</h2>
           <form action="/login" method="POST">
@@ -18,7 +18,6 @@
             <p>Password</p>
             <input type="password" name="password">
             <input type="submit" value="Log in">
-            <a href="/list">Back to articles</a>
           </form>
         </div>
       </div>

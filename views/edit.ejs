@@ -7,9 +7,7 @@
     <script src="/send_url.js"></script>
   </head>
   <body>
-    <header>
-      <a href="/" class="header-logo">LIST</a>
-    </header>
+    <%- include('header'); %> 
     <div class="container">
       <div class="container-header">
         <h1>Edit Item</h1>
@@ -17,7 +15,7 @@
       <div class="item-form-wrapper">
         <p class="form-label">Item</p>
         <form action="/update/<%= item.id %>" method="post">
-          <input type="text" name="itemName" value="<%= item.items %>">
+          <input type="text" name="itemName" value="<%= item.name %>">
           <input type="submit" value="Update">
         </form>
       </div>
