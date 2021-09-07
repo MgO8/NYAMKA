@@ -440,6 +440,7 @@ header {
 
 .about-cards_text {
     padding-bottom: 10%;
+    min-height: 80px;
 }
 
 .sign {
